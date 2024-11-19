@@ -1,0 +1,60 @@
+<div
+  class="card shadow custom-card"
+  style="background-color: #E7EDF7; border-radius: 4px; border: 1px solid #5897FF;"
+>
+  <ng-container *ngIf="amount && label; else skeleton">
+    <div class="card-body text-right">
+      <p class="h3 mb-1">{{ amount }}</p>
+      <p class="mb-0">{{ label }}</p>
+    </div>
+  </ng-container>
+
+    <ng-template #skeleton>
+    <div class="card-body">
+      <div class="skeleton skeleton-title"></div>
+      <div class="skeleton skeleton-text"></div>
+    </div>
+  </ng-template>
+</div>
+
+<style>
+    .custom-card {
+  background-color: #E7EDF7;
+  border-radius: 4px;
+  border: 1px solid #5897FF;
+}
+
+.custom-card .card-body {
+  padding: 1rem; 
+  text-align: right;
+}
+
+.skeleton {
+  display: block;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+.skeleton-title {
+  width: 70%;
+  height: 24px;
+  margin-bottom: 1rem;
+}
+
+.skeleton-text {
+  width: 50%;
+  height: 18px;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+</style>
